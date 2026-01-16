@@ -1,0 +1,378 @@
+body { /*Ajustes de la letra por defecto*/
+    font-family: Georgia, 'Times New Roman', Times, serif; /*Poner fuente*/
+    line-height: 1.6; /*Poner espaciado entre lineas*/
+    color: #333; /*Color de los textos*/
+    margin: 0; /*Se anadio para evitar espacios blancos en los bordes*/
+}
+
+header {
+    background: #c5c39a; /*color del header*/
+    color: white; /*color de las letras del header*/
+    padding: 1rem; /*espacio entre elementos del header*/
+}
+
+footer {
+    margin-top: 10px; /*espacio para separar el contenido con el footer*/
+    background: #c5c39a; /*color de fondo del footer*/
+    color: white; /*color de las letras del footer*/
+    text-align: center; /*Alinear el texto al centro*/
+    padding: 0.5px; /*Espacio que ocupa el footer*/
+}
+
+nav {
+    display: flex; /*poner los elementos del nav en una misma fila, para que el nombre este de un lado, y las secciones del otro*/
+    justify-content: space-between; /*poner espacio entre los elementos del nav*/
+    align-items: center; /*alinear los elementos del nav al centro*/
+}
+
+nav ul {
+    display: flex; /*poner los apartados en la misma fila*/
+    list-style: none; /*Quitar los puntos de los elementos de la lista*/
+    gap: 1rem; /*poner espacio entre los elementos de la lista*/
+}
+
+nav a {
+    color: white; /*color de los enlaces del nav*/
+    text-decoration: none; /*Quitarles el subrayado al los enlaces*/
+}
+
+nav a:hover { /*Efecto al pasar el raton por encima de los enlaces del nav*/
+    color: #88886e; /*cambiar el color de las letras al pasar el raton por encima*/
+}
+
+/* --- Seccion herop --- */
+/*inicio en computadoras*/
+.hero {
+    display: flex; /*Activa el flexbox para organizar los elementos*/
+    min-height: 80vh; /*Se ajusta la altura para que la imagen no quede muy grande*/
+    position: relative; /*Para que el texto se pegue a la imagen*/
+    width: 100%; /*Asegura que el hero ocupe todo el ancho de la pantalla*/
+}
+
+.hero-imagen {
+    flex: 1; /*Hace que la imagen ocupe todo el espacio disponible*/
+    background-image: url("https://img.freepik.com/foto-gratis/composicion-spa-articulos-cuidado-corporal-luz_169016-4165.jpg?t=st=1768489461~exp=1768493061~hmac=b9870b12eafff2d8e7458dcd4502f696314fcc9cad220860fa5e64fbe9d54f59&w=1480"); /*Link de imagen*/
+    background-size: cover; /*Se pone la imagen de fondo*/
+    background-position: center; /*Se centra la imagen*/
+}
+
+.hero-texto {
+    position: absolute; /*Para que el texto se pegue a la imagen*/
+    right: 6%; /*Se pega el texto al borde derecho*/
+    top: 40%; /*Se centra el texto verticalmente*/
+    max-width: 400px; /*Se pone un ancho maximo del texto para que no se salga de la pantalla*/
+}
+
+/*Solo para pantallas mayores a 769px y menores a 1366 (osea, tabletas)*/
+@media (min-width: 769px) and (max-width: 1366px) {
+    .hero {
+        min-height: 70vh; /*Se baja un poco la altura para que quepa bien*/
+    }
+
+    .hero-texto {
+        right: 5%; /*Se pega el texto al borde */
+        top: 20%; /*Y se sube un poco un poco */
+        max-width: 350px; /*Y se estrecha el texto para que luzca mejor*/
+        padding: 25px; /*Se ajusta el espacio*/
+    }
+}
+
+/*Solo para pantallas menores a 768px (osea celulares)*/
+@media (max-width: 768px) {
+    .hero {
+        flex-direction:column-reverse; /*Apila imagen arriba y texto abajo*/
+        min-height: auto; /*Elimina el espacio vacio de la altura*/
+    }
+
+    .hero-imagen {
+        width: 100%; /*Se le pone una anchoque se vea bien a la imagen*/
+        height: 300px; /*Se le pone una altura que se vea bien a la imagen*/
+        flex: none;    /*Se desactiva el flex:1 para que respete el height*/
+    }
+
+    .hero-texto {
+        position: static; /*Quita el anclaje de la derecha*/
+        width: 100%; /*Ocupa todo el ancho disponible*/
+        max-width: 100%; /*Ancho maximo al 100%*/
+        padding: 40px 20px; /*Aumenta el espacio dentro del cuadro de texto del hero*/
+        background: #c5c39a; /*Color de fondo del hero*/
+        color: white; /*Cambia el color de las letras a blanco*/
+        text-align: center; /*Centra el texto*/
+        box-sizing: border-box; /*Asegura que el padding (el espacio) no haga que el cuadro se salga de la pantalla*/
+    } 
+}
+
+
+/* Seccion mision */
+.mision{
+    padding: 40px 6%; /*Se alinea el margen del Hero*/
+    background-color: #eeeeee; /*color de dondo de la seccio mision*/
+}
+
+.mision h1{
+    text-align: left; /*Alinea el texto a la izquierda*/
+}
+
+.mision-contenido{
+    margin-top: 40px; /*Crea espacio entre la imagen y el titulo*/
+    display: flex; /*Activa el flexbox para organizar los elementos*/
+    align-items: center; /*Alinea los elementos al centro*/
+    gap: 40px; /*Crea espacio entre la imagen y el texto*/
+}
+
+/*Solo para pantallas mayores a 1024px (osea, laptops y monitores)*/
+@media (min-width: 1025px) {
+    .mision-contenido {
+        padding-left: 100px; /*ajusta el contenido de mision un poco al centro*/
+    }
+}
+
+.mision-contenido img {
+    border-radius: 20px; /*Se redondean los bordes para que luzca mejor*/
+    object-fit: cover; /*Ajusta la imagen*/
+    flex:1; /*Hace que la imagen ocupe todo el espacio disponible*/
+
+    /*Aqui se controla el tamanio*/
+    width: 500px; 
+    height: 400x;
+    object-fit: cover; /*Esto evita que la imagen se estire feo si se cambian las medidas*/     
+    border-radius: 12px; /*lo encircula un poco*/
+    flex-shrink: 0; /*Evita que la imagen se haga pequenia si el texto es muy largo*/
+}
+
+/*Solo para pantallas menores a 768px (osea celulares)*/
+@media (max-width: 768px) {
+    .mision-contenido {
+        flex-direction: column; /*Alinea el contenido en una columna*/
+        text-align: center; /*Y lo centra*/
+    }
+}
+
+@media (max-width: 768px) {
+    .mision-contenido img {
+        width: 100%; /*Ocupa todo el ancho disponible en el celular*/
+        height: auto; /*Mantiene la proporción natural */
+        max-width: 500px;  /*Pero que no se haga gigante si el cel es ancho*/
+    }
+}
+
+
+/* Seccion Vision */
+
+.vision{
+    padding: 40px 6%; /*Se alinea con el margen de mision*/
+    background-color: #88886e; /*color de fondo del apartado vision*/
+}
+
+.vision-contenido{
+    margin-top: 20px; /*Se separa el titulo de vision con el texto*/
+    display: flex; /*Activa el flexbox para organizar los elementos*/
+    align-items: center; /*Alinea el contenido en el centro*/
+    gap: 40px; /*Crea espacio entre la imagen y el texto*/
+}
+
+/*Solo para pantallas mayores a 1024px (osea laptops y monitores)*/
+@media (min-width: 1025px) {
+    .vision-contenido {
+        margin-top: 30px; /*Se ajustan los tamanios del contenido*/
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+}
+.vision-contenido img {
+    border-radius: 20px; /*Se redondean los bordes para que luzca mejor*/
+    object-fit: cover; /*Ajusta la imagen*/
+    flex:1; /*Hace que la imagen ocupe todo el espacio disponible*/
+
+    /*Aqui se controla el tamanio*/
+    width: 400px;
+    height: 300x; 
+    object-fit: cover; /*Evita que la imagen se estire feo si se cambian las medidas*/       
+    border-radius: 12px; /*Encircula un poco la imagen*/
+    flex-shrink: 0; /*Evita que la imagen se haga pequeña si el texto es muy largo*/
+}
+
+/*Solo para pantallas menores a 768px (osea celulares)*/
+@media (max-width: 768px) {
+    .vision-contenido {
+        flex-direction: column; 
+        /*en la compu los elementos estan uno al lado del otro. Al cambiarlo a column, la imagen y el texto se apilan uno arriba del otro*/
+        text-align: center; /*centra el texto en medio*/
+    }
+}
+
+@media (max-width: 768px) {
+    .vision-contenido img {
+        width: 100%;       /*Ocupa todo el ancho disponible en el celular*/
+        height: auto;      /*Mantiene la proporción*/
+        max-width: 500px;  /*Pero que no se haga gigante si el cel es ancho*/
+    }
+}
+
+
+/* Servicios*/
+
+.servicio-grid {
+    display: grid; /*Poner cajas en una fila continuas*/
+    grid-template-columns: repeat(3, 1fr); /*Hace que se muestren tres tarjetas en una fila*/
+    gap: 20px;/*Poner espacio entre los cuadros */
+    justify-content: center; /*Centrar las cajas*/
+}
+
+
+.servicio-card {
+    border: 1px solid #ccc; /*Borde de las tarjetas de bloque*/
+    padding: 25px; /*Espacio dentro de la tarjeta*/
+    max-width: 370px; /*Espacio limite para que no se estire demasiado*/
+    text-align: left; /*Alinear el texto a la izquierda*/
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3); /* ponerle sombra a la caja: X, Y, difuminado, color */
+    border-radius: 4%; /*Hacer las tarjetas de bloque circulares*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /*hace que tenga una animacion de efecto suave con el hover de abajo*/
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px); /*Hace que la tarjeta se eleve un poco al pasarle el mouse*/
+}
+
+.servicio-card img {
+    width: 100%;      /*La imagen ocupa todo el ancho de la tarjeta*/
+    height: 200px;    /*Altura fija para que todas se vean iguales*/
+    object-fit: cover; /*Ajusta la imagen*/
+    border-radius: 10px; /*Encircula el borde para que no se vea tan cuadrado*/
+}
+
+.verMas {
+    background-color: #c5c39a; /*Color de fondo del boton de ver mas*/
+    color: white; /*Color de la letras del boton*/
+    border: none; /*Quitarle el borde*/
+    padding: 10px 20px; /*Aumentar el tamanio del boton*/
+    border-radius: 5px; /*Lo encircula un poco*/
+    cursor: pointer; /*Cambia el cursor al pasar por el boton a la mano apuntando*/
+    margin-top: 15px; /*Crea espacio entre el texto y el boton*/
+}
+/*Solo para pantallas mayores a 1024px (osea laptops y monitores)*/
+@media (min-width: 1025px) {
+    .servicio-grid {
+        padding-left: 60px; /*Agrega un espacio a la izquierda para desplazar la tarjeta y que no se quede pegada a la izquierda */
+    }
+}
+/*Para las tablets*/
+@media (max-width: 1024px) {
+    .servicio-grid {
+        grid-template-columns: repeat(2, 1fr); /*2 columnas en tablets*/
+        justify-items: center; /*Las centra*/
+    }
+
+    
+    .servicio-card:last-child:nth-child(odd) {  /*Todo esto hace referencia a la ultima tarjeta, cuando sea impar, y en este caso es impar porque son 3*/
+        /*Busca la última tarjeta (:last-child) siempre que sea un número impar (:nth-child(odd))*/
+        grid-column: 1 / span 2; /*Hace que ocupe las dos columnas*/
+        justify-self: center;    /*Centra la tarjeta dentro del espacio total de las dos columnas*/
+        width: 50%; /*Ajusta el ancho para que no sea gigantes las tarjetas */
+    }
+}
+/*Para los telefonos*/
+@media (max-width: 767px) {
+    .servicio-grid {
+        grid-template-columns: 1fr; /*Hace que solo se muestre una sola columna en celular*/
+    }
+    
+    #servicios {
+        padding: 40px 5%; /*Hace que no toque los bordes del celular*/
+    }
+
+    .servicio-card:last-child:nth-child(odd) { /*En caso de que el tercer elemento sea el último, se centra*/
+        grid-column: auto; /*Cancela lo de usar dos columnas por fila*/
+        width: 90%; /*y se aumenta el ancho por razpnes esteticas*/
+    }
+}
+
+/* Alinear Textos */
+h1{
+    text-align: center; /*Alinea los h1 al centro*/
+}
+
+.titulo{
+    justify-self: center; /*Alinea los titulos al centro*/
+}
+
+/* Contacto */
+.contacto {
+    padding: 60px 10%; /*Pone espacio a los lados */
+    text-align: center; /*Centra el título y el contenido*/
+    background-color: #fdfdfd; /*Color de fondo de la seccion de contacto*/
+}
+
+.contenido-contacto {
+    display: flex; /*Activa el flexbox para poder organizar las cajas de texto*/
+    flex-direction: column; /*Apila las cajas y los iconos del formulario de manera vertical*/
+    align-items: center; /*Centra los elementos*/
+    gap: 40px; /*Crea espacio entre los iconos y el formulario*/
+    margin-top: 30px; /*Crea espacio entre el titulo contacto y el formulario*/
+}
+
+/* Estilo del Formulario */
+.formulario-contacto {
+    display: flex; /*Activa el flec para poder organizar las cajas*/
+    flex-direction: column; /*Pone los inputs uno debajo de otro*/
+    width: 100%; /*OCupa todo el ancho disponible*/
+    max-width: 500px; /*No permite que crezca mas y se deforme*/
+    gap: 15px; /*Pone espacio entre cada input*/
+}
+
+.formulario-contacto input, /*Para los inputs de nombre y email*/
+.formulario-contacto textarea { /*Y para el textarea del mensaje*/
+    padding: 15px; /*Aumenta el espacio de cada caja*/
+    border: 1px solid #ddd; /*Le pone un borde gris para que se vea mas estetico*/
+    border-radius: 8px; /*Redondea las cajas*/
+    font-family: inherit; /*Se le pone la fuente de lso demas textos*/
+    font-size: 1rem; /*Ajusta el tamanio de la letra*/
+    outline: none; /*Quita el borde chistoso*/
+    transition: border-color 0.3s; /*Le pone una animacion en donde aparece el color del borde cuando se le pica al boton*/
+}
+
+.formulario-contacto input:focus, 
+.formulario-contacto textarea:focus {
+    border-color: #c5c39a; /*Cuando el usuario escriba algo en las cajas, su color de texto sera este*/
+}
+
+#enviarMensaje {
+    background-color: #c5c39a; /*Color de fondo del boton*/
+    color: white; /*Color de las letras del boton*/
+    padding: 15px; /*Aumenta el tamanio del boton*/
+    border: none; /*LE quita el borde negro*/
+    border-radius: 8px; /*Hace el boton circular*/
+    cursor: pointer; /*Al colocar el mouse en el boton, se pone el cursor como una mano picandole*/
+    font-weight: bold; /*Transforma el boton en negritas*/
+    transition: background 0.3s; /*Al pasar el mouse hace una pequena animacion de cambio de color*/
+}
+
+#enviarMensaje:hover {
+    background-color: #b0ae8a; /*Al poner el mouse en el boton, se hace mas oscuro*/
+}
+
+/* Estilo de Redes Sociales */
+.iconos-redes {
+    display: flex; /*Activa el flex*/
+    gap: 25px; /*Separa los iconos*/
+    justify-content: center; /*Centra los botones*/
+    margin-top: 15px; /*Separa del boton de enviar mensaje*/
+}
+
+.iconos-redes i {
+    font-size: 2rem; /*Ajusta el tamanio del icono*/
+    color: #c5c39a; /*Le pone este color a los iconos que antes eran azules*/
+    transition: transform 0.3s, color 0.3s; /*Agrega una animacion al colocar el mouse con lo del hover de abajo*/
+}
+
+.iconos-redes i:hover {
+    color: #333; /*Al poner el mouse encima de los botones, se vuelven negros*/
+    transform: scale(1.2); /*Se agranda un poco al pasar el mouse*/
+}
+
+/*Para celulares*/
+@media (max-width: 768px) {
+    .contact {
+        padding: 40px 5%; /*Reduce el margen lateral en celulares*/
+    }
+}
